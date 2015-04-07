@@ -14,6 +14,7 @@
 		1718A2871ACC6B740023806C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1718A2861ACC6B740023806C /* Images.xcassets */; };
 		1718A28A1ACC6B740023806C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1718A2881ACC6B740023806C /* LaunchScreen.xib */; };
 		1718A2961ACC6B740023806C /* studular_iphoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718A2951ACC6B740023806C /* studular_iphoneTests.swift */; };
+		1783A08B1AD44AAA00E0D84A /* StudularData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1783A0891AD44AAA00E0D84A /* StudularData.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		1718A28F1ACC6B740023806C /* studular-iphoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "studular-iphoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1718A2941ACC6B740023806C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1718A2951ACC6B740023806C /* studular_iphoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studular_iphoneTests.swift; sourceTree = "<group>"; };
+		1783A08A1AD44AAA00E0D84A /* StudularData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudularData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				1718A27F1ACC6B740023806C /* MasterViewController.swift */,
 				1718A2811ACC6B740023806C /* DetailViewController.swift */,
 				1718A2831ACC6B740023806C /* Main.storyboard */,
+				1783A0891AD44AAA00E0D84A /* StudularData.xcdatamodeld */,
 				1718A2861ACC6B740023806C /* Images.xcassets */,
 				1718A2881ACC6B740023806C /* LaunchScreen.xib */,
 				1718A27B1ACC6B740023806C /* Supporting Files */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1783A08B1AD44AAA00E0D84A /* StudularData.xcdatamodeld in Sources */,
 				1718A2821ACC6B740023806C /* DetailViewController.swift in Sources */,
 				1718A2801ACC6B740023806C /* MasterViewController.swift in Sources */,
 				1718A27E1ACC6B740023806C /* AppDelegate.swift in Sources */,
@@ -411,6 +415,7 @@
 				1718A29B1ACC6B740023806C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1718A29C1ACC6B740023806C /* Build configuration list for PBXNativeTarget "studular-iphoneTests" */ = {
 			isa = XCConfigurationList;
@@ -419,8 +424,22 @@
 				1718A29E1ACC6B740023806C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1783A0891AD44AAA00E0D84A /* StudularData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1783A08A1AD44AAA00E0D84A /* StudularData.xcdatamodel */,
+			);
+			currentVersion = 1783A08A1AD44AAA00E0D84A /* StudularData.xcdatamodel */;
+			path = StudularData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1718A2701ACC6B740023806C /* Project object */;
 }

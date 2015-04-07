@@ -12,7 +12,11 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
-
+    @IBOutlet weak var ClassSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var TitleTextField: UITextField!
+    @IBOutlet weak var DescriptionTextView: UITextView!
+    @IBOutlet weak var DatePicker: UIDatePicker!
+    
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
