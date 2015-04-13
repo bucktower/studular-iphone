@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    var objects: Array<Assignment> = []
+    var sketchbook: NSManagedObjectContext?
 
 
     override func awakeFromNib() {
@@ -33,6 +35,12 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
         }
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        sketchbook = appDelegate.managedObjectContext
+        
+        // save the sketchbook
+        updateSketchbookToDisk()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,9 +49,71 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        if let sktchbk = sketchbook {
+            // create an empty song
+            let theSongEntity = NSEntityDescription.entityForName("Assignment", inManagedObjectContext: sktchbk)
+            let assignment = Assignment(entity: theSongEntity!, insertIntoManagedObjectContext: sktchbk)
+            
+            // give the song some starting values
+            assignment.inClass = "Class"
+            assignment.title = "Title"
+            assignment.desc = "Description"
+            //assignment.dueDate = "1/1/15"
+            
+            // put the song into the song list
+            objects.insert(assignment, atIndex: 0)
+            
+            // insert a row at the top of the table
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            
+            // save the sketchbook
+            updateSketchbookToDisk()
+        }
+    }
+    
+    // MARK: - CoreData
+    func updateSketchbookToDisk()
+    {
+        if let sktchbk = sketchbook
+        {
+            var error: NSError?
+            let successfullySaved = sktchbk.save(&error)
+            if successfullySaved == false
+            {    println("Could not save \(error), \(error?.userInfo)")
+            }
+        }
+        else
+        {
+            println("Could not find managedContext.")
+        }
+    }
+    
+    func updateDiskToSketchbook()
+    {
+        let fetchRequest = NSFetchRequest(entityName: "Assignment")// replace Movie with your data name.
+        
+        // submit your request and store the result in the optional "fetchedResults"
+        if let sktchbk = sketchbook // Period C - use "mySketchbook"
+        {
+            println("Found context")
+            var error: NSError?
+            let fetchedResults = sktchbk.executeFetchRequest(fetchRequest, error: &error) as [Assignment]? // replace "Movie" with your data entity name.
+            
+            // if the optional is filled, store the contents in "objects."
+            if let results = fetchedResults
+            {
+                objects = results
+            }
+            else // otherwise, print an error message and leave the objects list alone.
+            {
+                println("Could not fetch \(error), \(error!.userInfo)")
+            }
+        }
+        else
+        {
+            println("Could not find managedObjectContext 'sketchbook.'")
+        }
     }
 
     // MARK: - Segues
@@ -51,13 +121,18 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow() {
-                let object = objects[indexPath.row] as NSDate
+                let object = objects[indexPath.row] as Assignment
                 let controller = (segue.destinationViewController as UINavigationController).topViewController as DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
         }
+    }
+    
+    @IBAction func saveToMasterView(sender: UIStoryboardSegue) {
+        tableView.reloadData()
+        updateSketchbookToDisk()
     }
 
     // MARK: - Table View
@@ -73,7 +148,7 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-        let object = objects[indexPath.row] as NSDate
+        let object = objects[indexPath.row] as Assignment
         cell.textLabel!.text = object.description
         return cell
     }

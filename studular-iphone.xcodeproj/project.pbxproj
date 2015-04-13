@@ -15,6 +15,7 @@
 		1718A28A1ACC6B740023806C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1718A2881ACC6B740023806C /* LaunchScreen.xib */; };
 		1718A2961ACC6B740023806C /* studular_iphoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1718A2951ACC6B740023806C /* studular_iphoneTests.swift */; };
 		1783A08B1AD44AAA00E0D84A /* StudularData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1783A0891AD44AAA00E0D84A /* StudularData.xcdatamodeld */; };
+		1783A08D1AD44D2A00E0D84A /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1783A08C1AD44D2A00E0D84A /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		1718A2941ACC6B740023806C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1718A2951ACC6B740023806C /* studular_iphoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studular_iphoneTests.swift; sourceTree = "<group>"; };
 		1783A08A1AD44AAA00E0D84A /* StudularData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StudularData.xcdatamodel; sourceTree = "<group>"; };
+		1783A08C1AD44D2A00E0D84A /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				1718A27D1ACC6B740023806C /* AppDelegate.swift */,
 				1718A27F1ACC6B740023806C /* MasterViewController.swift */,
 				1718A2811ACC6B740023806C /* DetailViewController.swift */,
+				1783A08C1AD44D2A00E0D84A /* Assignment.swift */,
 				1718A2831ACC6B740023806C /* Main.storyboard */,
 				1783A0891AD44AAA00E0D84A /* StudularData.xcdatamodeld */,
 				1718A2861ACC6B740023806C /* Images.xcassets */,
@@ -221,6 +224,7 @@
 				1783A08B1AD44AAA00E0D84A /* StudularData.xcdatamodeld in Sources */,
 				1718A2821ACC6B740023806C /* DetailViewController.swift in Sources */,
 				1718A2801ACC6B740023806C /* MasterViewController.swift in Sources */,
+				1783A08D1AD44D2A00E0D84A /* Assignment.swift in Sources */,
 				1718A27E1ACC6B740023806C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
