@@ -147,9 +147,17 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-        let object = objects[indexPath.row] as Assignment
-        cell.textLabel!.text = object.description
+        println("Getting object #\(indexPath.row) from list with \(objects.count) items.")
+        let object:Assignment = objects[indexPath.row]
+        print("got here.")
+        //        {
+            println(object.cellText)
+//        }
+        //else
+//        {
+//            print("object was nil!")
+//        }
+       // cell.textLabel!.text = object.cellText
         return cell
     }
 

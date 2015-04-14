@@ -16,8 +16,8 @@ class Assignment: NSManagedObject {
     @NSManaged var inClass: String
     @NSManaged var dueDate: Int16
     
-    override var description:String {
-        return "\(inClass): \(title) (\(dueDate))"
+    var cellText:String {
+        return "\(inClass): \(title)"
     }
     
 }
