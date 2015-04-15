@@ -77,11 +77,11 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UITextViewDel
         // Dispose of any resources that can be recreated.
     }
     
-    /* WIP - UNCOMMENT WHEN WORKING TEST
+    // WIP - UNCOMMENT WHEN WORKING TEST
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }*/
+    }
 
 }
 
